@@ -21,6 +21,7 @@ svm_model = joblib.load('model/svm_model.pkl')
 
 win = tk.Tk()
 win.geometry("1100x600+100+10")
+win.resizable(False, False)
 background_image = Image.open("img/background.jpg")
 background_photo = ImageTk.PhotoImage(background_image)
 background_label = tk.Label(win, image=background_photo)
@@ -87,9 +88,9 @@ def create_input_fields():
         row_entries = []
         for j in range(3):
             index = i * 3 + j
-            label = ttk.Label(input_frame, text=f"{features[index]}:", font=("Helvetica", 9, "bold"))
+            label = ttk.Label(input_frame, text=f"{features[index]}:", font=("Helvetica", 10, "bold"))
             label.grid(row=i, column=j * 2, padx=5, pady=5, sticky="w")
-            entry = ttk.Entry(input_frame)
+            entry = ttk.Entry(input_frame,width=22)
             entry.grid(row=i, column=j * 2 + 1, padx=5, pady=5, sticky="ew")
             row_entries.append(entry)
         entries.append(row_entries)
@@ -99,9 +100,9 @@ def create_input_fields():
         start_index = num_rows * 3
         for j in range(extra_row):
             index = start_index + j
-            label = ttk.Label(input_frame, text=f"{features[index]}:", font=("Helvetica", 9, "bold"))
+            label = ttk.Label(input_frame, text=f"{features[index]}:", font=("Helvetica", 10, "bold"))
             label.grid(row=num_rows, column=j * 2, padx=5, pady=5, sticky="w")
-            entry = ttk.Entry(input_frame)
+            entry = ttk.Entry(input_frame,width=22)
             entry.grid(row=num_rows, column=j * 2 + 1, padx=5, pady=5, sticky="ew")
             row_entries.append(entry)
         entries.append(row_entries)
